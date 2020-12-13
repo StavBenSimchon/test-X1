@@ -1,0 +1,19 @@
+name: CI
+on:
+  pull_request:
+    types: [closed,opened,reopened]
+jobs:
+  build:
+    name: run-jenkins
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: jenkins
+        # if: github.event.pull_request.merged == true && github.event.base_ref == main
+        uses: enflo/jenkins-action@master
+        with:
+          url: http://445e3f781694.ngrok.io
+          user: a
+          token: 11ee01d9c0bea2f9cfe9617a0aef3403f3
+          job: /job/a
+          parameters: payload=${{ github.event }}
