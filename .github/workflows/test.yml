@@ -14,6 +14,6 @@ jobs:
         with:
           url: http://445e3f781694.ngrok.io
           user: a
-          token: ${{ secret.TOKEN }}
+          token: ${{ secrets.TOKEN }}
           job: /job/a
           parameters: payload=${{ github.event }}
